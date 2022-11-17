@@ -18,6 +18,7 @@ int main()
  // GPIO_Clock_Enable( (uint32_t*) 0x40020401);
   GPIO_Clock_Enable(GPIOD);
   GPIO_Config (GPIOD, PIN12, OUTPUT, OUTPUT_PUSH_PULL);
+  GPIO_Config (GPIOB,PIN10,INPUT,OUTPUT_OPEN_DRAIN);
   while(1)
   {
   }
