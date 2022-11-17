@@ -20,11 +20,12 @@ void GPIO_Config (uint32_t *GPIOx, uint8_t pin,  uint8_t Mode, uint8_t Type)
   uint32_t *GPIO_MODER = (uint32_t *) (GPIOx); 
     *GPIO_MODER |=((0 << pin*2) && (Mode << pin*2)) ; // registre MODER = 0
   uint32_t *GPIO_OTYPER = (uint32_t *) (GPIOx + 0x04);
-  
+    /* PUSH PULL*/
     if (Type == 0) 
     { 
       *GPIO_OTYPER |=(0<< pin);
     }
+    /* OPEN DRAIN*/
     else if (Type == 1)
     { 
       *GPIO_OTYPER |=(1<< pin); 
