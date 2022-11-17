@@ -3,7 +3,7 @@
   * @file    main.c
   * @author  jarray fakhreddine
   * @brief   GPIO DRIVER 
-  * @version V2.0.0
+  * @version V2.1.0
   * @date    15-11-2022
   *****************************************************************************/
 
