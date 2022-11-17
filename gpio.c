@@ -15,7 +15,18 @@ void GPIO_Clock_Enable(uint32_t *GPIOx)
     *RCCAHB1 |= (1<<3);
  
 }
-void GPIO_Config (uint32_t *GPIOx, uint8_t Pin,  uint8_t Mode, uint8_t Type)
+void GPIO_Config (uint32_t *GPIOx, uint8_t pin,  uint8_t Mode, uint8_t Type)
 {
+  uint32_t *GPIO_MODER = (uint32_t *) (GPIOx); 
+    *GPIO_MODER |=((0 << pin*2) && (Mode << pin*2)) ; // registre MODER = 0
+  uint32_t *GPIO_OTYPER = (uint32_t *) (GPIOx + 0x04);
   
+    if (Type == 0) 
+    { 
+      *GPIO_OTYPER |=(0<< pin);
+    }
+    else if (Type == 1)
+    { 
+      *GPIO_OTYPER |=(1<< pin); 
+    }
 }
